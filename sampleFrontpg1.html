@@ -1,0 +1,350 @@
+<html>
+<head>
+
+<script>
+
+var $selectbox = $("#selectbox");
+
+var $imagecontainer = $(".images");
+
+var selection = $selectbox.data("selected");
+
+$selectbox.on("change", changeImageSelection);
+
+function changeImageSelection() {
+
+  selection = $selectbox.val();
+
+  $imagecontainer.addClass("loading");
+
+  $imagecontainer[0].dataset.selected = null;
+
+
+  setTimeout(function() {
+  
+    $imagecontainer.removeClass("loading");
+    $imagecontainer[0].dataset.selected = selection;
+  }, 1500);
+}
+
+</script>
+
+<title>
+sample1
+</title>
+<style>
+
+ 
+html {
+  font-family: "didot";
+}
+
+h2 {
+  font-size: 80px;
+  margin: 0;
+  writing-mode: vertical-lr;
+  text-align: center;
+  line-height: .9;
+}
+
+.rotate {
+   transform: rotate(180deg);
+}
+
+div {
+  display: grid;
+  height: 100vh;
+  width: 17vw;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: max-content max-content;
+}
+body {
+  margin: 0;
+}
+:root {
+  --rad: .7rem;
+  --dur: .3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #57bd84;
+  --font-fam: 'Lato', sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+body {
+
+  background-repeat: no-repeat;
+
+}
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 0px solid #00B4CC;
+  border-right: none;
+  padding: 10px;
+  height: 40px;
+  border-radius: 0px 0 0 0px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color:#000000;
+}
+
+.searchButton {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000000;
+  background: #201C02;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 0px 0px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: fixed;
+  top: 52%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+div.fixed {
+  position: fixed;
+  top: -45%;
+  bottom: 0;
+  right: -33;
+  width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+.icon-bar {
+  position: fixed;
+  top: 80%;
+  left: 90%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+/* Style the social media icons with color, if you want */
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+
+select {
+  margin-bottom: 1em;
+  padding: .25em;
+  border: 0;
+  border-bottom: 2px solid currentcolor; 
+  font-weight: bold;
+  letter-spacing: .15em;
+  border-radius: 0;
+  &:focus, &:active {
+    outline: 0;
+    border-bottom-color: red;
+  }
+}
+
+.images {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px 3px 3px 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 15px -15px rgba(#000, .5);
+  img,
+  .loader,
+  .no-selection {
+    display: none;
+    letter-spacing: .15em;
+    font-weight: bold;
+  }
+  &[data-selected=""]:not(.loading) {
+    background: #eee;
+    .no-selection {
+      display: block;
+    }
+  }
+  &.loading {
+    background: #eee;
+    .loader {
+      display: block;
+      animation: loading 1.5s linear;
+    }
+  }
+}
+@for $i from 1 through 5 {
+  .images[data-selected="#{$i}"] {
+    img[data-image="#{$i}"] {
+      display: block;
+    }
+  }
+}
+
+@keyframes loading {
+  to {
+    letter-spacing: .25em;
+  }
+}
+
+
+</style>
+<body background="fg5.jpg">
+
+    <div>
+        <h2 class="rotate">AK BOOTS</h2>
+        <h2>BOUTIQUE</h2>
+      </div>
+
+
+
+
+
+     <!-- Load font awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The social media icon bar -->
+<div class="icon-bar">
+  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a><br>
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a><br>
+  <a href="#" class="google"><i class="fa fa-google"></i></a><br>
+  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a><br>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a><br>
+</div>
+
+
+
+
+
+
+<select id="selectbox" data-selected="">
+  <option value="" selected="selected" disabled="disabled">Boots Categories</option>
+  <option value="1"><a href="boots.html">Ankle Boots</a></option></head>
+  <option value="2"><a href="over.html">Over Knee Boots</a></option>
+  <option value="3"><a href="heel.html">High Heel Boots</a></option>
+  <option value="4"><a href="cow.html">Cowboy Boots</a></option>
+  <option value="5"><a href="wedge.html">Wedge Boots</a></option>
+</select>
+
+<div class="images" data-selected="">
+  <span class="loader">loading image...</span>
+  <span class="no-selection"></span>
+  <img src="https://picsum.photos/300/300/?image=280" data-image="1" alt="Ankle Boots" title="Ankle Boots" />
+  <img src="https://picsum.photos/300/300/?image=281" data-image="2" alt="Over Knee Boots" title="Over Knee Boots" />
+  <img src="https://picsum.photos/300/300/?image=282" data-image="3" alt="High Heel Boots" title="High Heel Boots" />
+  <img src="https://picsum.photos/300/300/?image=283" data-image="4" alt="Cowboy Boots" title="Cowboy Boots" />
+  <img src="https://picsum.photos/300/300/?image=284" data-image="5" alt="Wedge Boots" title="Wedge Boots" />
+</div>
+
+
+
+
+
+<div class="wrap">
+  <div class="search">
+     <input type="text" class="searchTerm" placeholder="What are you looking for?">
+     <button type="submit" class="searchButton">
+       <i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
+
+
+
+</body>
+</html>
